@@ -3,8 +3,8 @@ public class markovgenerator {
     public static void main(String[] args) {
         
         //Conditionals for checking validity of the passed arguments
-        if(args.length != 2) {
-            System.out.println("Usage: java markovgenerator.java path_to_file k_value");
+        if(args.length != 3) {
+            System.out.println("Usage: java markovgenerator.java path_to_file k_value word_count");
             return;   
         }
         File file = new File(args[0]);
@@ -16,7 +16,14 @@ public class markovgenerator {
         try {
             k_value = Integer.parseInt(args[1]);
         } catch (NumberFormatException e) {
-            System.out.println("Invalid k value ");
+            System.out.println("Invalid k value");
+            return;
+        }
+        int word_count;
+        try {
+            word_count = Integer.parseInt(args[2]);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid word count value");
             return;
         }
         MarkovMatrix markovMatrix = new MarkovMatrix(file, k_value);
