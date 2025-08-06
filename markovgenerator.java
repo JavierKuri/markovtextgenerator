@@ -12,13 +12,13 @@ public class markovgenerator {
             System.out.println("File does not exist");
             return;
         }
+        int k_value;
         try {
-            int k_value = Integer.parseInt(args[1]);
+            k_value = Integer.parseInt(args[1]);
         } catch (NumberFormatException e) {
             System.out.println("Invalid k value ");
             return;
         }
-
-        
+        MarkovMatrix markovMatrix = new MarkovMatrix(file, k_value);
     }
 }
