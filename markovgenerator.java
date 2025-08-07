@@ -15,6 +15,10 @@ public class markovgenerator {
         int k_value;
         try {
             k_value = Integer.parseInt(args[1]);
+            if(k_value < 1) {
+                System.out.println("k value must be greater than 0");
+            return;
+            }
         } catch (NumberFormatException e) {
             System.out.println("Invalid k value");
             return;
