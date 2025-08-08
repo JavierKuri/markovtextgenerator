@@ -27,13 +27,13 @@ public class MarkovMatrix {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String[] tokens = text.split(" ");
+        String[] tokens = text.split("\\s+");
         String[] k_grams = new String[tokens.length-k_value+1];
         for(int i=0;i<tokens.length-k_value+1;i++) {
             k_grams[i] = create_k_gram(tokens, i);
         }
 
-        //Filling the matrix with frecuencies of state transitions between kgrams
+        //Filling the matrix with frequencies of state transitions between kgrams
         for(int i=0;i<k_grams.length-1;i++) {
             String current_kgram = k_grams[i];
             String next_kgram = k_grams[i+1];
