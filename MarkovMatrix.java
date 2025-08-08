@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.io.IOException;
 
-
 public class MarkovMatrix {
     public File input_file;
     public int k_value;

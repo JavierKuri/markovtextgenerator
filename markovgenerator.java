@@ -8,6 +8,7 @@ public class markovgenerator {
         List<String> keys = new ArrayList<>(matrix.keySet());
         String currentKey = keys.get(random.nextInt(keys.size()));
         for (int i = 0; i < token_Count; i++) {
+            //Only the first gram is printed completely, the next ones only the last words as the rest would be repeated
             if (i == 0) {
                 System.out.print(currentKey + " ");
             } else {
@@ -18,6 +19,7 @@ public class markovgenerator {
             double rand = random.nextDouble();
             double cumulative = 0.0;
             String nextKey = null;
+            //Comparing the cumulative value of the probs to the random number in order to see to which token/k-gram it corresponds to
             for (Map.Entry<String, Float> entry : innerMap.entrySet()) {
                 cumulative += entry.getValue();
                 if (rand <= cumulative) {
@@ -25,6 +27,7 @@ public class markovgenerator {
                     break;
                 }
             }
+            //Case if the last token is selected, and thus does not have a next state
             if (nextKey == null) {
                 currentKey = keys.get(random.nextInt(keys.size()));
             } else {
